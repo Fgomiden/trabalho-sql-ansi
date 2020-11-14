@@ -38,7 +38,7 @@ VALUES
 
 
 --SELECT
-SELECT * FROM aulas -- seleciona tudo
+SELECT * FROM aulas
 
 SELECT * FROM alunos
 
@@ -49,12 +49,14 @@ ORDER BY idade DESC
 
 
 --UPDATE
+--mudar o nome
 UPDATE alunos
-SET nome = 'Filipe Vieira' --mudar o nome
+SET nome = 'Filipe Vieira' 
 WHERE matricula = 4098
 
+--mudar a matricula
 UPDATE alunos
-SET matricula = 6334 --mudar a matricula
+SET matricula = 6334 
 WHERE nome = 'Eduarda Souza'
 
 
