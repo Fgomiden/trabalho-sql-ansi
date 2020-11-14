@@ -10,7 +10,7 @@ CREATE TABLE alunos(
     nome VARCHAR(255) NOT NULL,
     idade INT NOT NULL,
     matricula INT NOT NULL,
-    aula_id INT UNSIGNED NOT NULL,
+    aula_id INT UNSIGNED,
     UNIQUE KEY (matricula),
     PRIMARY KEY (id),
     FOREIGN KEY (aula_id) REFERENCES aulas (id)  
@@ -27,6 +27,13 @@ VALUES
     ('Algebra Linear', 'Maria Teresa'),
     ('Estatistica', 'Fabiana Santos');
 
+INSERT INTO aulas
+    (nome, professor)
+VALUES
+    ('Botanica', 'Sergio Mendes'),
+    ('Geografia', 'Lucia Alves');
+
+
 INSERT INTO alunos
     (nome, idade, matricula, aula_id)
 VALUES 
@@ -35,10 +42,18 @@ VALUES
     ('Felipe Vieira', 30, 4098, 1),
     ('Alessandra Mendes', 25, 2632, 2);
 
+INSERT INTO alunos
+    (nome, idade, matricula, aula_id)
+VALUES 
+    ('Mario Almeida', 23, 2209, null),
+    ('Andreia Pereira', 23, 2389, null);
+
+
+
 
 
 --SELECT
-SELECT * FROM aulas
+SELECT * FROM aulas 
 
 SELECT * FROM alunos
 
@@ -49,9 +64,9 @@ ORDER BY idade DESC
 
 
 --UPDATE
---mudar o nome
+ --mudar o nome
 UPDATE alunos
-SET nome = 'Filipe Vieira' 
+SET nome = 'Filipe Vieira'
 WHERE matricula = 4098
 
 --mudar a matricula
@@ -67,7 +82,8 @@ WHERE nome = 'Eduarda Souza'
 SELECT 
     alunos.nome as Aluno, 
     aulas.nome as Aula,
-    professor as Professor
+    professor as Professor,
+    matricula as Matricula
 FROM aulas, alunos
 WHERE aulas.id = alunos.aula_id;
 
